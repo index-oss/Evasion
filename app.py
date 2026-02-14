@@ -1,11 +1,9 @@
 import streamlit as st
+from risk import score_url
 
-st.title("SecureStack Mini Demo")
+st.title("SecureStack Scanner")
 
 url = st.text_input("Enter URL")
 
-if st.button("Check"):
-    if url.startswith("https://"):
-        st.success("Looks Safe")
-    else:
-        st.error("Potentially Risky")
+if st.button("Scan"):
+    st.write(score_url(url))
